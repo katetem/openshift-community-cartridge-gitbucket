@@ -1,0 +1,28 @@
+#!/bin/bash
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+# The logic to start up your application should be put in this
+# script. The application will work only if it binds to
+# $OPENSHIFT_DIY_IP:8080
+
+if [[ -z "$OPENSHIFT_INTERNAL_IP" ]]; then export OPENSHIFT_INTERNAL_IP="$OPENSHIFT_DIY_IP"; fi
+if [[ -z "$OPENSHIFT_INTERNAL_PORT" ]]; then export OPENSHIFT_INTERNAL_PORT="$OPENSHIFT_DIY_PORT"; fi
+
+# Start define variables
+ON_HOST=${OPENSHIFT_INTERNAL_IP}
+ON_PORT=${OPENSHIFT_INTERNAL_PORT}
+GITBUCKET_FOLDER=".gitbucket"
+HOME_GITBUCKET="${OPENSHIFT_REPO_DIR}${GITBUCKET_FOLDER}/"
+JAR_FILE="gitbucket.war"
+MEM_MAX=512
+MEM_LEAST=256
+# End define variables
+
+# Start command procession
+PARAMETER_HOST="--host=${ON_HOST}"
+PARAMETER_PORT="--port=${ON_PORT}"
+PARAMETER_HOME="--gitbucket.home=${HOME_GITBUCKET}"
+# End command procession
+
+# Start command execution
+nohup java -Xmx${MEM_MAX}M -Xms${MEM_LEAST}M -jar ${OPENSHIFT_REPO_DIR}${JAR_FILE} ${PARAMETER_HOME} ${PARAMETER_HOST} ${PARAMETER_PORT} > ${OPENSHIFT_LOG_DIR}output.log 2>&1 &
+# End command execution
