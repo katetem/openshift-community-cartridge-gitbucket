@@ -8,10 +8,10 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 # else
 #     kill `ps -ef | grep testrubyserver.rb | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
 # fi
-if [ -z "$(ps ax | grep 'java -jar' | grep -v grep)" ]
+if [ -z "$(ps -ax | grep 'java' | grep -v grep)" ]
   then
      client_result "Application is already stopped"
   else 
-     kill $(ps ax | grep 'java -jar ' | grep -v grep | awk '{print $1}')
+     kill $(ps -ax | grep 'java' | grep -v grep | awk '{print $1}')
      client_result "Success"
 fi
