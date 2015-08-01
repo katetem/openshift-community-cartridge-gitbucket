@@ -11,7 +11,7 @@ There are multiple methods to achive this, however in this section I'd only tell
 1. Create a free OpenShift Account by clickin [here](https://www.openshift.com/app/account/new)
 2. After signing up, you should go to the application console, and select "Add Application...".
 3. In the application creation wizard, drag your browser to the bottom, and click on "Do-It-Yourself 0.1".
-4. You should only change the field "Source Code" to "https://github.com/katetem/openshift-community-cartridge-gitbucket" and    branch name should be "master", everything else should be customized by you.
+4. You should only change the field "Source Code" to "https://github.com/Benderwan/openshift-gitbucket" and branch name should be "master", everything else should be customized by you.
 5. After all, click on "Create Application", and you will have a free Git hosting, in only or less than 60 seconds.
 
 #####PS. The defaulting administraive user is root, while the password is also set as "root", you should change your password as soon as    possible after successfully deployed your GitBucket repository.
@@ -19,4 +19,4 @@ There are multiple methods to achive this, however in this section I'd only tell
 #Credits
 * [OpenShift](https://www.openshift.com/) for his amazing online PaaS hosting.
 * [GitBucket](https://github.com/takezoe/gitbucket) for a great interface and the ease of setting up.
-* You for reading this all over.
+* You for reading this piece of markdown.
